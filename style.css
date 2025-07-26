@@ -1,0 +1,559 @@
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Savate:ital,wght@0,200..900;1,200..900&display=swap");
+
+/* BASIC RESET AND FONTS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gabarito", sans-serif; /* Using Gabarito as the primary font */
+}
+
+body,
+html {
+  height: 100%;
+  overflow: hidden; /* Prevent overall page scrolling */
+}
+
+body {
+  background-color: rgb(25, 25, 25); /* Dark background for the main page */
+  color: white; /* Default text color for the main layout */
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between; /* Space between logo and date display */
+  align-items: center;
+  padding: 15px 20px;
+  background-color: rgb(4, 9, 29); /* Dark blue header background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  color: white; /* Ensure header text is white */
+}
+
+header .logo { /* Target logo specifically in the main header */
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+header .logo img { /* Target logo image specifically in the main header */
+  height: 32px;
+  margin-right: 10px;
+}
+
+#app__title { /* Ensure main app title is white */
+    color: white;
+}
+
+.date__display {
+  text-align: right;
+}
+
+.day {
+  font-weight: bold;
+}
+
+.full__date,
+#currentDate {
+  color: rgb(89, 82, 209); /* Accent color for date */
+}
+
+/* MAIN LAYOUT */
+.container {
+  display: flex;
+  height: calc(100vh - 67px); /* Subtract header height (approx 67px) */
+  overflow: hidden; /* Prevent container content from overflowing */
+} 
+
+
+/* SIDEBAR PROFILE */
+.sidebar {
+  width: 250px;
+  min-width: 250px; /* Fixed width */
+  background: rgb(4, 9, 29); /* Dark blue sidebar background */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Shadow on the right */
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile__img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  border: 3px solid rgb(138, 43, 226);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  background-color: rgb(35, 35, 35);
+}
+
+.profile__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile__name {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: white; /* Ensure profile name is white */
+}
+
+.profile__email {
+  font-size: 12px;
+  opacity: 0.8;
+  color: #bbb; /* Lighter color for email */
+}
+
+.sidebar__button {
+  background-color: transparent; /* Default transparent background */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  width: 100%;
+  text-align: left;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar__button:hover {
+    background-color: rgba(89, 82, 209, 0.2); /* Subtle hover effect */
+}
+
+.sidebar__button.active {
+  background-color: rgb(89, 82, 209); /* Active button accent color */
+}
+
+/* MAIN CONTENT */
+.main__content {
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* no matter what they start from the top */
+    overflow-y: auto; /* no matter what we're going to be able to scroll up and down */
+}
+
+/* JOURNAL CONTAINER */
+.journal__container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* MOOD SUMMARY DISPLAY */
+.mood__summary {
+    background: linear-gradient(135deg, rgb(158, 86, 225), rgb(110, 34, 181));
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+}
+
+.mood__label {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 5px;
+}
+
+.mood__average {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.mood__stats {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* QUICK ADD MOOD SECTION */
+.quick__add--section {
+    background-color: rgb(35, 35, 35);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #444;
+    margin-bottom: 25px;
+}
+
+.quick__add--section h4 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-bottom: 1 px solid #555;
+    padding-bottom: 8px;
+}
+
+.mood__input--section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.mood__scale {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;gap: 10px;
+}
+
+.mood__scale label {
+    font-size: 14px;
+    color: #ccc;
+    margin-right: 10px;
+}
+
+.mood__options {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+}
+
+.mood__option {
+    flex: 1; /* no matter what it will take up the space the whole of a container */
+    padding: 12px;
+    border: 2px solid #444;
+    border-radius: 8px;
+    background-color: rgb(42, 42, 42);
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.mood__option:hover {
+    border-color: rgb(138, 43, 226);
+    background-color: rgba(138, 43, 226, 0.1)
+}
+
+.mood__option--selected {
+    border-color: rgb(138, 43, 226);
+    background-color: rgba(138, 43, 226, 0.2);
+    color: rgb(138, 43, 226);
+}
+
+.mood__emoji {
+    font-size: 24px;
+    margin-bottom: 2px;
+}
+
+.mood__text {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.note__input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background-color: rgb(42, 42, 42);
+    color: white;
+    font-size: 14px;
+    resize: vertical; /* when you have too much text you can always move the box vericially */
+    min-height: 80px;
+    transition: all 0.3s ease;
+}
+
+.note__input:focus {
+    border-color: rgb(138, 43, 226);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.2);
+}
+
+.add__entry--btn {
+    background-color: rgb(138, 43, 226);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.add__entry--btn:hover {
+    background-color: rgb(110, 34, 181);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(138, 43, 226, 0.3);
+}
+
+/* CHART AND ENTRIES LAYOUT */
+.content__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+/* CHART SECTION */
+.chart__section {
+    background-color: rgb(35, 35, 35);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #444;
+}
+
+.chart__section h4 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-bottom: 1px solid #555;
+    padding-bottom: 8px;
+}
+
+/* CUSTOM SHART STYLES */
+.custom__chart {
+    width: 100%;
+    height: 300px;
+    position: relative; /* positioning the y axis relative to the chart */
+    background-color: rgb(42, 42, 42);
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #555;
+}
+
+.chart__grid {
+    position: absolute; /* ignores the padding */
+    top: 20px;
+    left: 50px;
+    right: 20px;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chart__grid--line {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    position: relative; /* positioning relative to the parent = chart grid line */
+}
+
+.chart__y--label {
+    position: absolute; /* working within the container */
+    left: -40px; /* to move it left outside of the container */
+    top: -10px;
+    color: #ccc;
+    font-size: 20px;
+    width: 30px;
+    text-align: center;
+}
+
+.chart__bars {
+    position: absolute; /* absolutely to its parent = custom chart*/
+    bottom: 40px;
+    left: 50px; /* thats how much space the emojis are using */
+    right: 20px;
+    height: calc(100% - 60px); /* 40px from bottom: chart__bars and padding of 20px from chart__grid together */
+    display: flex; /* want the bars next to eachother */
+    align-items: flex-end;
+    justify-content: space-around;
+    gap: 5px;
+}
+
+.chart__bar--container {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: flex-end;
+    position: relative; /* want the text to be directly underneath */
+}
+
+.chart__bar {
+    width: 80%; /* to give some space between them */
+    background-color: rgba(108, 117, 125, 0.3);
+    border-radius: 4px 4px 0 0;
+    transition: all 0.3s ease;
+    position: relative; /* to be able to place the toolTip relative to this bar */
+    min-height: 4px;
+    border: 2px solid rgba(108, 117, 125, 0.5);
+}
+
+.chart__bar:hover {
+    transform: scaleY(1.05);
+    filter: brightness(1.1);
+}
+
+.chart__bar.has__data {
+    background-color: rgba(108, 117, 125, 0.8);
+    border-color: rgb(138, 43, 226);
+}
+
+.chart__x--label {
+    position: absolute;
+    bottom: -30px;
+    color: #ccc;
+    font-size: 12px;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+}
+
+.chart__toolTip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%; /* using % helps it to be centered - 50% of the toolTip is moved to the left*/
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap; /* not allowing the text to wrap - can also set max-width */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.chart__bar:hover .chart__toolTip {
+    opacity: 1;
+}
+
+/* RECENT ENTRIES SECTION */
+.entries__section {
+    background-color: rgb(35, 35, 35);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #444;
+}
+
+.entries__section h4 { /*can include this in other h4 section instead of writing this all again and repeating it */
+    color: white;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-bottom: 1px solid #555;
+    padding-bottom: 8px;
+}
+
+.entries__container {
+    max-height: 300px; /* whatever height it wants except past 300px - great for responsiveness */
+    overflow-y: auto; /* if the items don't fit, hide them, and add a scroll bar */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mood__entry {
+    background-color: rgb(42, 42, 42);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid rgb(138, 43, 226);
+    transition: all 0.3s ease;
+    position: relative; /* don't need it ?? b/c nothing is being put on position: absolute; to it */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.mood__entray:hover {
+    background-color: rgb(45, 45, 45);
+}
+
+.entry__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.entry__mood {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+.entry__date {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.entry__note {
+    color: #ddd;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.entry__left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.delete__entry {
+    background-color: rgb(220, 53, 69);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+    margin: 8px 10px;
+}
+
+.delete__entry:hover {
+    background-color: rgb(200, 35, 51);
+    opacity: 1;
+}
+
+.no__entries {
+    color: #888;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(42, 42, 42, 0.3);
+    border-radius: 6px;
+    border: 1px dashed #555;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+    .content__grid {
+        grid-template-columns: 1fr;
+    }
+    .mood__options {
+        flex-wrap: wrap;
+    }
+    .mood__option {
+        min-width: 60px;
+    }
+}
