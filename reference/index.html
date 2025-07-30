@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mood Journal</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <span id="app-title">Mood Journal</span>
+      </div>
+      <div class="date-display">
+        <div class="day" id="currentDay">Today</div>
+        <div class="full-date" id="currentDate"></div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="sidebar">
+        <div class="profile">
+          <div class="profile-img">😊</div>
+          <div class="profile-name" id="profileName">Mood Tracker</div>
+          <div class="profile-email" id="profileEmail">
+            track@moodjournal.com
+          </div>
+        </div>
+        <div class="sidebar-buttons">
+          <button class="sidebar-button" data-section="section1">
+            📋 Task List
+          </button>
+          <button class="sidebar-button" data-section="section2">
+            📈 Digital Vision Board
+          </button>
+          <button class="sidebar-button" data-section="section3">
+            🧮 Macro Calculator
+          </button>
+          <button class="sidebar-button" data-section="section4">
+            💪 Workout/Meal Planner
+          </button>
+          <button class="sidebar-button" data-section="section5">
+            💰 Monthly Tracker
+          </button>
+          <button class="sidebar-button active" data-section="section5">
+            📈 Mood Tracker
+          </button>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <!-- HTML (Khosro) START HERE -->
+        <div class="journal-container">
+          <div class="mood-summary">
+            <div class="mood-label">Average Mood This Week</div>
+            <div class="mood-average" id="mood-average">😊 0.0</div>
+            <div class="mood-stats" id="mood-stats">
+              No entries recorded yet
+            </div>
+          </div>
+
+          <div class="quick-add-section">
+            <h4>Add Today's Mood Entry</h4>
+            <div class="mood-input-section">
+              <div class="mood-scale">
+                <label>How are you feeling?</label>
+                <div class="mood-options">
+                  <div class="mood-option" data-mood="1">
+                    <div class="mood-emoji">😢</div>
+                    <div class="mood-text">Terrible</div>
+                  </div>
+                  <div class="mood-option" data-mood="2">
+                    <div class="mood-emoji">😟</div>
+                    <div class="mood-text">Bad</div>
+                  </div>
+                  <div class="mood-option" data-mood="3">
+                    <div class="mood-emoji">😐</div>
+                    <div class="mood-text">Okay</div>
+                  </div>
+                  <div class="mood-option" data-mood="4">
+                    <div class="mood-emoji">😊</div>
+                    <div class="mood-text">Good</div>
+                  </div>
+                  <div class="mood-option" data-mood="5">
+                    <div class="mood-emoji">😄</div>
+                    <div class="mood-text">Great</div>
+                  </div>
+                </div>
+              </div>
+              <textarea
+                class="note-input"
+                id="mood-note"
+                placeholder="What's on your mind today? (optional)"
+              ></textarea>
+              <button class="add-entry-btn" id="add-entry-btn">
+                Add Mood Entry
+              </button>
+            </div>
+          </div>
+
+          <div class="content-grid">
+            <div class="chart-section">
+              <h4>📊 Mood Trends (Last 7 Days)</h4>
+              <div class="custom-chart" id="moodChart">
+                <div class="chart-grid">
+                  <div class="chart-grid-line">
+                    <div class="chart-y-label">😄</div>
+                  </div>
+                  <div class="chart-grid-line">
+                    <div class="chart-y-label">😊</div>
+                  </div>
+                  <div class="chart-grid-line">
+                    <div class="chart-y-label">😐</div>
+                  </div>
+                  <div class="chart-grid-line">
+                    <div class="chart-y-label">😟</div>
+                  </div>
+                  <div class="chart-grid-line">
+                    <div class="chart-y-label">😢</div>
+                  </div>
+                </div>
+                <div class="chart-bars" id="chart-bars">
+                  <!-- Bars will be generated here -->
+                </div>
+              </div>
+            </div>
+
+            <div class="entries-section">
+              <h4>📝 Recent Entries</h4>
+              <div class="entries-container" id="entries-container">
+                <div class="no-entries">
+                  No mood entries yet. Add your first entry above!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- HTML (Khosro) END HERE -->
+      </div>
+    </div>
+  </body>
+</html>
